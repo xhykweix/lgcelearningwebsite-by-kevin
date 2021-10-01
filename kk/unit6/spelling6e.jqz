@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<hotpot-jquiz-file>
+<version>5</version>
+
+<data>
+<title>Write the spelling of each word. (6E)</title>
+
+<reading>
+<include-reading>0</include-reading>
+<include-timer>0</include-timer>
+<time-limit>1</time-limit>
+<internal-reading>1</internal-reading>
+<path-to-reading></path-to-reading>
+<reading-title></reading-title>
+<reading-text></reading-text>
+
+</reading>
+
+<questions>
+
+
+<question-record>
+<question>&lt;a href=&quot;sound6/heat2.wav&quot;&gt;Click here&lt;/a&gt;</question>
+<answer>
+<text>heat</text>
+<correct>1</correct>
+<feedback></feedback>
+</answer>
+
+</question-record>
+
+<question-record>
+<question>&lt;a href=&quot;sound6/heed2.wav&quot;&gt;Click here&lt;/a&gt;</question>
+<answer>
+<text>heed</text>
+<correct>1</correct>
+<feedback></feedback>
+</answer>
+
+</question-record>
+
+<question-record>
+<question>&lt;a href=&quot;sound6/hit2.wav&quot;&gt;Click here&lt;/a&gt;</question>
+<answer>
+<text>hit</text>
+<correct>1</correct>
+<feedback></feedback>
+</answer>
+
+</question-record>
+</questions>
+</data>
+
+<hotpot-config-file>
+<jquiz>
+<exercise-subtitle>Short-answer quiz</exercise-subtitle>
+<instructions>Type your answer, then press &quot;Check&quot;. If you need help, you can click on the &quot;Hint&quot; button to get a free letter.</instructions>
+<guess-correct>Correct!</guess-correct>
+<guess-incorrect>Sorry! Try again.</guess-incorrect>
+<also-correct>Other correct answers: </also-correct>
+<this-much-correct>This part of your answer is correct: </this-much-correct>
+<enter-a-guess>Please enter a guess.</enter-a-guess>
+<these-words-correct>These words appear in the answer: </these-words-correct>
+<next-correct-letter>Next correct letter in the answer: </next-correct-letter>
+<correct-answers>Correct answers: </correct-answers>
+<show-answer-caption>Show answer</show-answer-caption>
+<include-hint>0</include-hint>
+<include-show-answer>1</include-show-answer>
+<show-these-words-correct>1</show-these-words-correct>
+<next-ex-url>spelling6f.htm</next-ex-url>
+<send-email>0</send-email>
+<top-frame-size>25</top-frame-size><top-frame-units>%</top-frame-units>
+<continuous-scoring>1</continuous-scoring>
+<shuffle-questions>1</shuffle-questions>
+<case-sensitive>1</case-sensitive>
+<show-one-by-one>0</show-one-by-one>
+<show-limited-questions>1</show-limited-questions>
+<questions-to-show>3</questions-to-show>
+</jquiz>
+
+<global>
+<remaining-time>Remaining time:</remaining-time>
+<start-reading>Start reading</start-reading>
+<show-reading-again>Show reading again</show-reading-again>
+<times-up>Your time is over!</times-up>
+<click-to-show>Click on the button to see the reading.</click-to-show>
+<hint-caption>Hint</hint-caption>
+<check-caption>Check</check-caption>
+<ok-caption>OK</ok-caption>
+<next-ex-caption>=&gt;</next-ex-caption>
+<back-caption></back-caption>
+<contents-caption>&lt;=</contents-caption>
+<include-next-ex>1</include-next-ex>
+<include-contents>1</include-contents>
+<include-back>0</include-back>
+<contents-url>spelling6d.htm</contents-url>
+<graphic-url></graphic-url>
+<font-face>Geneva,Arial</font-face>
+<page-bg-color>#fcfeb1</page-bg-color>
+<title-color>#000033</title-color>
+<ex-bg-color>#e0fbfe</ex-bg-color>
+<text-color>#000000</text-color>
+<link-color>#0000ff</link-color>
+<vlink-color>#0000cc</vlink-color>
+<nav-bar-color>#e023f5</nav-bar-color>
+<formmail-url>http://your.server.address/cgi-bin/FormMail.pl</formmail-url>
+<email>you@yourplace.com</email>
+<name-please>Please enter your name:</name-please>
+<your-score-is>Your score is </your-score-is>
+<correct-first-time>Questions answered correctly first time: </correct-first-time>
+<show-these-words-correct>1</show-these-words-correct>
+</global>
+</hotpot-config-file>
+</hotpot-jquiz-file>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<hotpot-jmatch-file>
+<version>5</version>
+
+<data>
+<title>&amp;#35531;&amp;#23559;&amp;#19979;&amp;#21015;&amp;#30340;&amp;#38899;&amp;#33287;&amp;#38899;&amp;#27161;&amp;#37197;&amp;#21512;&amp;#36215;&amp;#20358;. (H)</title>
+
+<reading>
+<include-reading>0</include-reading>
+<include-timer>0</include-timer>
+<time-limit>1</time-limit>
+<internal-reading>1</internal-reading>
+<path-to-reading></path-to-reading>
+<reading-title></reading-title>
+<reading-text></reading-text>
+
+</reading>
+
+<matching-exercise>
+<default-right-item>???
+</default-right-item>
+
+<pair>
+<left-item><text>&lt;a href=&quot;sound4/shop2.wav&quot;&gt;Click here&lt;/a&gt;</text>
+<fixed>1</fixed>
+</left-item>
+<right-item><text>&lt;img src=&quot;pic4/shop.jpg&quot; alt=&quot;shop.jpg&quot; width=&quot;70&quot; height=&quot;34&quot; border=&quot;0&quot;&gt;&lt;/img&gt;</text>
+<fixed>0</fixed>
+</right-item></pair>
+
+<pair>
+<left-item><text>&lt;a href=&quot;sound4/shut2.wav&quot;&gt;Click here&lt;/a&gt;</text>
+<fixed>1</fixed>
+</left-item>
+<right-item><text>&lt;img src=&quot;pic4/shut.jpg&quot; alt=&quot;shut.jpg&quot; width=&quot;70&quot; height=&quot;44&quot; border=&quot;0&quot;&gt;&lt;/img&gt;</text>
+<fixed>0</fixed>
+</right-item></pair>
+
+<pair>
+<left-item><text>&lt;a href=&quot;sound4/soap2.wav&quot;&gt;Click here&lt;/a&gt;</text>
+<fixed>1</fixed>
+</left-item>
+<right-item><text>&lt;img src=&quot;pic4/soap.jpg&quot; alt=&quot;soap.jpg&quot; width=&quot;70&quot; height=&quot;37&quot; border=&quot;0&quot;&gt;&lt;/img&gt;</text>
+<fixed>0</fixed>
+</right-item></pair>
+
+<pair>
+<left-item><text>&lt;a href=&quot;sound4/soak2.wav&quot;&gt;Click here&lt;/a&gt;</text>
+<fixed>1</fixed>
+</left-item>
+<right-item><text>&lt;img src=&quot;pic4/soak.jpg&quot; alt=&quot;soak.jpg&quot; width=&quot;70&quot; height=&quot;36&quot; border=&quot;0&quot;&gt;&lt;/img&gt;</text>
+<fixed>0</fixed>
+</right-item></pair>
+
+<pair>
+<left-item><text>&lt;a href=&quot;sound4/thought2.wav&quot;&gt;Click here&lt;/a&gt;</text>
+<fixed>1</fixed>
+</left-item>
+<right-item><text>&lt;img src=&quot;pic4/thought.jpg&quot; alt=&quot;thought.jpg&quot; width=&quot;70&quot; height=&quot;40&quot; border=&quot;0&quot;&gt;&lt;/img&gt;</text>
+<fixed>0</fixed>
+</right-item></pair>
+</matching-exercise>
+</data>
+
+<hotpot-config-file>
+<jmatch>
+<exercise-subtitle>Matching exercise</exercise-subtitle>
+<instructions>Match the items on the right with the items on the left.</instructions>
+<next-ex-url>unit4.htm</next-ex-url>
+<send-email>0</send-email>
+<top-frame-size>25</top-frame-size><top-frame-units>%</top-frame-units>
+<guess-correct>Correct! Well done.</guess-correct>
+<guess-incorrect>Sorry! Try again. Incorrect matches have been removed.</guess-incorrect>
+</jmatch>
+
+<global>
+<your-score-is>Your score is </your-score-is>
+<correct-indicator>:-)</correct-indicator>
+<incorrect-indicator>X</incorrect-indicator>
+<remaining-time>Remaining time:</remaining-time>
+<start-reading>Start reading</start-reading>
+<show-reading-again>Show reading again</show-reading-again>
+<times-up>Your time is over!</times-up>
+<click-to-show>Click on the button to see the reading.</click-to-show>
+<check-caption>Check</check-caption>
+<ok-caption>OK</ok-caption>
+<next-ex-caption>=&gt;</next-ex-caption>
+<back-caption>&lt;=</back-caption>
+<contents-caption>&lt;=</contents-caption>
+<include-next-ex>1</include-next-ex>
+<include-contents>1</include-contents>
+<include-back>0</include-back>
+<contents-url>match2.htm</contents-url>
+<graphic-url></graphic-url>
+<font-face>Geneva,Arial</font-face>
+<page-bg-color>#fcfeb1</page-bg-color>
+<title-color>#000033</title-color>
+<ex-bg-color>#e0fbfe</ex-bg-color>
+<text-color>#000000</text-color>
+<link-color>#0000ff</link-color>
+<vlink-color>#0000cc</vlink-color>
+<nav-bar-color>#e023f5</nav-bar-color>
+<formmail-url>http://your.server.address/cgi-bin/FormMail.pl</formmail-url>
+<email>you@yourplace.com</email>
+<name-please>Please enter your name:</name-please>
+</global>
+</hotpot-config-file>
+</hotpot-jmatch-file>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<hotpot-jbc-file>
+<version>5</version>
+
+<data>
+<title>Choose the correct answr. (D)</title>
+
+<reading>
+<include-reading>0</include-reading>
+<include-timer>0</include-timer>
+<time-limit>1</time-limit>
+<internal-reading>1</internal-reading>
+<path-to-reading></path-to-reading>
+<reading-title></reading-title>
+<reading-text></reading-text>
+
+</reading>
+
+<questions>
+
+
+<question-record>
+<question>[d___p] &lt;a href=&quot;deep2.wav&quot;&gt;Listen&lt;/a&gt;</question>
+<must-select-all>0</must-select-all>
+<answer>
+<text>[ i ]</text>
+<correct>1</correct>
+<feedback>deep &lt;center&gt;&lt;img src=&quot;tx-baby5[1].gif&quot; alt=&quot;tx-baby5[1].gif&quot; width=&quot;70&quot; height=&quot;72&quot; border=&quot;0&quot;&gt;&lt;/img&gt;&lt;/center&gt;</feedback>
+</answer>
+<answer>
+<text>[&lt;img src=&quot;../symbols/-i-.jpg&quot; alt=&quot;-i-.jpg&quot; width=&quot;15&quot; height=&quot;20&quot; border=&quot;0&quot;&gt;&lt;/img&gt;]</text>
+<correct>0</correct>
+<feedback>dip &lt;center&gt;&lt;img src=&quot;tx-baby4[1].gif&quot; alt=&quot;tx-baby4[1].gif&quot; width=&quot;70&quot; height=&quot;81&quot; border=&quot;0&quot;&gt;&lt;/img&gt;&lt;/center&gt;</feedback>
+</answer>
+
+</question-record>
+
+<question-record>
+<question>[d___p] &lt;a href=&quot;dip2.wav&quot;&gt;Listen&lt;/a&gt;</question>
+<must-select-all>0</must-select-all>
+<answer>
+<text>[ i ]</text>
+<correct>0</correct>
+<feedback>deep &lt;center&gt;&lt;img src=&quot;tx-baby4[1].gif&quot; alt=&quot;tx-baby4[1].gif&quot; width=&quot;70&quot; height=&quot;81&quot; border=&quot;0&quot;&gt;&lt;/img&gt;&lt;/center&gt;</feedback>
+</answer>
+<answer>
+<text>[&lt;img src=&quot;../symbols/-i-.jpg&quot; alt=&quot;-i-.jpg&quot; width=&quot;15&quot; height=&quot;20&quot; border=&quot;0&quot;&gt;&lt;/img&gt;]</text>
+<correct>1</correct>
+<feedback>dip &lt;center&gt;&lt;img src=&quot;tx-baby5[1].gif&quot; alt=&quot;tx-baby5[1].gif&quot; width=&quot;70&quot; height=&quot;72&quot; border=&quot;0&quot;&gt;&lt;/img&gt;&lt;/center&gt;</feedback>
+</answer>
+
+</question-record>
+</questions>
+</data>
+
+<hotpot-config-file>
+<jbc>
+<exercise-subtitle>Multiple-choice exercise</exercise-subtitle>
+<instructions>Choose the correct answer for each question.</instructions>
+<guess-correct>Correct!  </guess-correct>
+<guess-incorrect>Sorry! Try again. </guess-incorrect>
+<next-ex-url>exerciseA5.htm</next-ex-url>
+<send-email>0</send-email>
+<top-frame-size>25</top-frame-size><top-frame-units>%</top-frame-units>
+<continuous-scoring>1</continuous-scoring>
+<shuffle-questions>1</shuffle-questions>
+<shuffle-answers>1</shuffle-answers>
+<show-one-by-one>0</show-one-by-one>
+<show-limited-questions>1</show-limited-questions>
+<questions-to-show>3</questions-to-show>
+</jbc>
+
+<global>
+<your-score-is>Your score is </your-score-is>
+<correct-indicator>:-)</correct-indicator>
+<incorrect-indicator>X</incorrect-indicator>
+<correct-first-time>Questions answered correctly first time: </correct-first-time>
+<remaining-time>Remaining time:</remaining-time>
+<start-reading>Start reading</start-reading>
+<show-reading-again>Show reading again</show-reading-again>
+<times-up>Your time is over!</times-up>
+<click-to-show>Click on the button to see the reading.</click-to-show>
+<next-ex-caption>=&gt;</next-ex-caption>
+<back-caption>&lt;=</back-caption>
+<contents-caption>&lt;=</contents-caption>
+<include-next-ex>1</include-next-ex>
+<include-contents>1</include-contents>
+<include-back>0</include-back>
+<contents-url>exerciseA3.htm</contents-url>
+<graphic-url></graphic-url>
+<font-face>Geneva,Arial</font-face>
+<page-bg-color>#fcfeb1</page-bg-color>
+<title-color>#000033</title-color>
+<ex-bg-color>#e0fbfe</ex-bg-color>
+<text-color>#000000</text-color>
+<link-color>#0000ff</link-color>
+<vlink-color>#0000cc</vlink-color>
+<nav-bar-color>#e023f5</nav-bar-color>
+<formmail-url>http://your.server.address/cgi-bin/FormMail.pl</formmail-url>
+<email>you@yourplace.com</email>
+<name-please>Please enter your name:</name-please>
+<correct-first-time>Questions answered correctly first time: </correct-first-time>
+<check-caption>Check</check-caption>
+<ok-caption>OK</ok-caption>
+</global>
+</hotpot-config-file>
+</hotpot-jbc-file>

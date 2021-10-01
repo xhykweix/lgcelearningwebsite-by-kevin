@@ -1,0 +1,827 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head><meta name="author" content="Created with Hot Potatoes by Half-Baked Software, registered to UNREGISTERED."></meta><meta name="keywords" content="Hot Potatoes, Half-Baked Software, Windows, University of Victoria"></meta> 
+<title>&#38899;&#27161;&#37325;&#32068;&#33287;&#20998;&#38899;&#31680; (10B)  Click here</title>
+
+<!--<body>Fool those dumb ad-inserting ISPs</body>-->
+
+<style type="text/css">
+
+BODY {
+	font-family: Geneva,Arial;
+	background-color: #fcfeb1;
+	color: #000033;
+}
+
+DIV.Titles {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	top: 5px;
+}
+
+TD.NavBar{
+	background-color: #e023f5;
+	text-align: center;
+}
+
+DIV.DropLine {
+	position: absolute;
+	text-align: center;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #000033;
+	width: 80%;
+}
+
+DIV.CardStyle {
+	position: absolute;
+	font-family: Geneva,Arial;
+	padding: 5px;
+	border-style: solid;
+	border-width: 1px;
+	color: #000000;
+	background-color: #e0fbfe;
+	left: 200px;
+	top: 200px;
+}
+
+DIV.Feedback {
+	background-color: #fcfeb1;
+	left: 1px;
+	top: 1px;
+	z-index: 1;
+	border-width: 1px;
+	border-style: none;
+	text-align: center;
+	color: #000033;
+	padding: 5px;
+	position: absolute;
+}
+
+</style>
+
+<script language="javascript" type="text/javascript"> 
+
+//<![CDATA[
+
+<!--
+
+function BrowserCheck() {
+	var b = navigator.appName
+	this.mac = (navigator.appVersion.indexOf('Mac') != -1)
+	if (b=="Netscape") this.b = 'ns'
+	else if (b=="Microsoft Internet Explorer") this.b = 'ie'
+	else this.b = b
+	this.version = navigator.appVersion
+	this.v = parseInt(this.version)
+	this.ns = (this.b=="ns" && this.v>=5)
+	this.ns5 = (this.b=="ns" && this.v==5)
+	this.ns6 = (this.b=="ns" && this.v==5)
+	this.ie = (this.b=="ie" && this.v>=4)
+	this.ie4 = (this.version.indexOf('MSIE 4')>0)
+	this.ie5 = (this.version.indexOf('MSIE 5')>0)
+	if (this.mac) this.ie = this.ie5
+	this.ie5mac = (this.ie5 && this.mac);
+	this.min = (this.ns||this.ie)
+}
+
+is = new BrowserCheck();
+
+if ((is.min == false)||(is.ie5mac)){
+	alert('Your browser can\'t handle this page. You need NS6 or IE5 on Windows, or NS6 on Mac.');
+//	history.back();
+}
+
+var Punctuation = ')}]!;:?,.\u0085\u0092\u0094\u009B\u00A8\u00B4\u00B7\u00BB';
+var Openers = '"({[\u0082\u0084\u008B\u0091\u0093\u00A1\u00AB\u00BF';
+var CorrectResponse = 'Correct!';
+var IncorrectResponse = 'Sorry! Try again.';
+var ThisMuchCorrect = 'This much of your answer is correct:';
+var TheseAnswersToo = 'These answers are also correct:';
+var YourScoreIs = 'Your score is ';
+var NextCorrect = 'The next correct part is: ';
+var DivWidth = 400; //default value
+var FeedbackWidth = 200; //default
+var ExBGColor = '#e0fbfe';
+var PageBGColor = '#fcfeb1';
+var TextColor = '#000000';
+var TitleColor = '#000033';
+var DropTotal = 3; // number of lines that will be available for dropping on
+var Gap = 4; //Gap between two segments when they're next to each other on a line
+var DropHeight = 30;
+var CapitalizeFirst = false;
+var Output = '';
+var TempSegment = '';
+var FirstSegment = -1;
+var FirstDiv = -1;
+var Penalties = 0;
+
+var CurrDrag = -1;
+var topZ = 100;
+var C = new Array();
+var L = new Array();
+
+function PageDim(){
+//Get the page width and height
+	this.W = 600;
+	this.H = 400;
+	if (is.ns) this.W = window.innerWidth;
+	if (is.ie) this.W = document.body.clientWidth;
+	if (is.ns) this.H = window.innerHeight;
+	if (is.ie) this.H = document.body.clientHeight;
+}
+
+function Card(ID){
+	this.elm=document.getElementById(ID);
+	this.name=ID;
+	this.css=this.elm.style;
+	this.elm.style.left = 0 +'px';
+	this.elm.style.top = 0 +'px';
+	this.HomeL = 0;
+	this.HomeT = 0;
+	this.tag=-1;
+	this.index=-1;
+//	this.obj=ID+'Card';
+//	eval(this.obj+'=this');
+}
+
+function CardGetL(){return parseInt(this.css.left)}
+Card.prototype.GetL=CardGetL;
+
+function CardGetT(){return parseInt(this.css.top)}
+Card.prototype.GetT=CardGetT;
+
+function CardGetW(){return parseInt(this.elm.offsetWidth)}
+Card.prototype.GetW=CardGetW;
+
+function CardGetH(){return parseInt(this.elm.offsetHeight)}
+Card.prototype.GetH=CardGetH;
+
+function CardGetB(){return this.GetT()+this.GetH()}
+Card.prototype.GetB=CardGetB;
+
+function CardGetR(){return this.GetL()+this.GetW()}
+Card.prototype.GetR=CardGetR;
+
+function CardSetL(NewL){this.css.left = NewL+'px'}
+Card.prototype.SetL=CardSetL;
+
+function CardSetT(NewT){this.css.top = NewT+'px'}
+Card.prototype.SetT=CardSetT;
+
+function CardSetW(NewW){this.css.width = NewW+'px'}
+Card.prototype.SetW=CardSetW;
+
+function CardSetH(NewH){this.css.height = NewH+'px'}
+Card.prototype.SetH=CardSetH;
+
+function CardInside(X,Y){
+	var Result=false;
+	if(X>=this.GetL()){if(X<=this.GetR()){if(Y>=this.GetT()){if(Y<=this.GetB()){Result=true;}}}}
+	return Result;
+}
+Card.prototype.Inside=CardInside;
+
+function CardSwapColours(){
+	var c=this.css.backgroundColor;
+	this.css.backgroundColor=this.css.color;
+	this.css.color=c;
+}
+Card.prototype.SwapColours=CardSwapColours;
+
+function CardOverlap(OtherCard){
+	var smR=(this.GetR()<OtherCard.GetR())? this.GetR(): OtherCard.GetR();
+	var lgL=(this.GetL()>OtherCard.GetL())? this.GetL(): OtherCard.GetL();
+	var HDim=smR-lgL;
+	if (HDim<1){return 0;}
+	var smB=(this.GetB()<OtherCard.GetB())? this.GetB(): OtherCard.GetB();
+	var lgT=(this.GetT()>OtherCard.GetT())? this.GetT(): OtherCard.GetT();
+	var VDim=smB-lgT;
+	if (VDim<1){return 0;}
+	return (HDim*VDim);	
+}
+Card.prototype.Overlap=CardOverlap;
+
+function CardDockToR(OtherCard){
+	this.SetL(OtherCard.GetR() + 5);
+	this.SetT(OtherCard.GetT());
+}
+
+Card.prototype.DockToR=CardDockToR;
+
+function CardSetHome(){
+	this.HomeL=this.GetL();
+	this.HomeT=this.GetT();
+}
+Card.prototype.SetHome=CardSetHome;
+
+function CardGoHome(){
+	this.SetL(this.HomeL);
+	this.SetT(this.HomeT);
+}
+
+Card.prototype.GoHome=CardGoHome;
+
+
+var pg = null;
+var DivWidth = 600;
+var DragWidth = 200;
+var LeftColPos = 100;
+var RightColPos = 500;
+var DragTop = 120;
+var DragNumber = -1;
+
+Lines = new Array();
+
+
+function CapFirst(InString){
+	var i = 0;
+	if ((Openers.indexOf(InString.charAt(i))>-1)||(InString.charAt(i) == ' ')){
+		i++;
+	}
+	if ((Openers.indexOf(InString.charAt(i))>-1)||(InString.charAt(i) == ' ')){
+		i++;
+	}
+	var Temp = InString.charAt(i);
+	Temp = Temp.toUpperCase();
+	InString = InString.substring(0, i) + Temp + InString.substring(i+1, InString.length);
+	return InString;
+}
+
+function CheckResults(ChkType){
+//Get sequence student has chosen
+	GetGuessSequence();
+
+//Compile the answer
+	Output = CompileString(GuessSequence);
+
+//Check the answer
+	CheckAnswer(ChkType);
+}
+
+function GetGuessSequence(){
+//Put pointers to draggables in arrays based on the lines they're sitting on
+	var Drops = new Array();
+	for (var i=0; i<L.length; i++){
+		Drops[i] = new Array();
+	}
+
+	for (i=0; i<C.length; i++){
+		for (var j=0; j<L.length; j++){
+			if (C[i].GetT() == L[j].GetB() - (C[i].GetH()+2)){
+				Drops[j][Drops[j].length] = C[i];
+			}
+		}
+	}
+
+//Sort the drop arrays based on the Left of each div
+	for (i=0; i<Drops.length; i++){
+		Drops[i].sort(CompDrags);
+	}
+
+//Put the tags into the GuessSequence array
+	GuessSequence.length = 0;
+	for (i=0; i<Drops.length; i++){
+		for (j=0; j<Drops[i].length; j++){
+			GuessSequence[GuessSequence.length] = Drops[i][j].tag;
+		}
+	}
+
+//Set the variable recording which div is first
+	var NewFirstDiv = -1;
+	for (i=0; i<Drops.length; i++){
+		if (Drops[i].length > 0){
+			NewFirstDiv = Drops[i][0].index;
+			break;
+		}
+	}
+	return NewFirstDiv;
+}
+
+function CompDrags(a,b){
+	return a.GetL() - b.GetL(); 
+}
+
+function FindSegment(SegID){
+	var Seg = '';
+	for (var i=0; i<Segments.length; i++){
+		if (Segments[i][1] == SegID){
+			Seg = Segments[i][0];
+			break;
+		}
+	}
+	return Seg;
+}
+
+function CompileString(InArray){
+	var OutString = '';
+	var i = 0;
+	OutArray = new Array();
+
+	for (i=0; i<InArray.length; i++){
+		OutArray[OutArray.length] = FindSegment(InArray[i]);
+	}
+
+	if (OutArray.length > 0){
+		OutString = OutArray[0];
+	}
+	else{
+		OutString = '';
+	}
+	var Spacer = '';
+
+	for (i=1; i<OutArray.length; i++){
+		Spacer = ' ';
+		if ((Openers.indexOf(OutString.charAt(OutString.length-1)) > -1)||(Punctuation.indexOf(OutArray[i].charAt(0)) > -1)){
+			Spacer = '';
+		}
+		OutString = OutString + Spacer + OutArray[i];		
+	}
+
+//Capitalize the first letter if necessary
+	if (CapitalizeFirst == true){
+		i = 0;
+		if ((Openers.indexOf(OutString.charAt(i))>-1)||(OutString.charAt(i) == ' ')){
+			i++;
+		}
+		if ((Openers.indexOf(OutString.charAt(i))>-1)||(OutString.charAt(i) == ' ')){
+			i++;
+		}
+		var Temp = OutString.charAt(i);
+		Temp = Temp.toUpperCase();
+		OutString = OutString.substring(0, i) + Temp + OutString.substring(i+1, OutString.length);
+	}
+	return OutString;
+}
+
+function CheckAnswer(CheckType){
+	if (GuessSequence.length < 1){
+		if (CheckType == 1){
+			Penalties++;
+			WriteFeedback(NextCorrect + '<br /><br /><i>' + FindSegment(Answers[0][0]) + '</i>');
+		}
+		return;
+	}
+
+	var i = 0;
+	var j = 0;
+	var k = 0;
+	var WellDone = '';
+	var WhichCorrect = -1;
+	var TryAgain = '';
+	var LongestCorrectBit = '';
+	TempCorrect = new Array();
+	LongestCorrect = new Array();
+	var TempHint = '';
+	var HintToReturn = 1;
+	var OtherAnswers = '';
+
+	for (i=0; i<Answers.length; i++){
+		TempCorrect.length = 0;
+		for (j=0; j<Answers[i].length; j++){
+			if (Answers[i][j] == GuessSequence[j]){
+				TempCorrect[j] = GuessSequence[j];
+			}
+			else{
+				TempHint = Answers[i][j];
+				break;
+			}
+		}
+		if ((TempCorrect.length == GuessSequence.length)&&(TempCorrect.length == Answers[i].length)){
+			WhichCorrect = i;
+			break;
+		}
+		else{
+			if (TempCorrect.length > LongestCorrect.length){
+				LongestCorrect.length = 0;
+				for (k=0; k<TempCorrect.length; k++){
+					LongestCorrect[k] = TempCorrect[k];
+				}
+				HintToReturn = TempHint;
+			} 
+		}	
+	}
+	if (WhichCorrect > -1){
+		for (i=0; i<Answers.length; i++){
+			if (i!=WhichCorrect){
+				OtherAnswers += '<br />' + CompileString(Answers[i]);
+			}
+		}
+		WellDone = '<i>' + Output + '</i><br /><br />' + CorrectResponse + '<br />';
+
+//Do score calculation here
+		var Score = Math.floor(((Segments.length-Penalties) * 100)/Segments.length);
+		WellDone += YourScoreIs + ' ' + Score + '%.<br />';
+
+
+		if (OtherAnswers.length > 0){
+			WellDone += TheseAnswersToo + '<i>' + OtherAnswers + '</i>';
+		}
+
+
+		WriteFeedback(WellDone);
+
+		return;
+	}
+
+	else{
+		TryAgain = '<i>' + CompileString(GuessSequence) + '</i><br /><br />';
+		Penalties++;
+
+		if ((CheckType == 0)||(LongestCorrect.length==0)){
+			TryAgain += IncorrectResponse + '<br />';
+		}
+
+		if (LongestCorrect.length > 0){
+			LongestCorrectBit = CompileString(LongestCorrect);
+			GuessSequence.length = LongestCorrect.length;
+			TryAgain += '<br />' + ThisMuchCorrect + '<br /><i>' + LongestCorrectBit + '</i><br />';
+		}
+
+		if (CheckType == 1){
+			TryAgain += '<br />' + NextCorrect + '<br />' + FindSegment(HintToReturn);
+		}
+
+		WriteFeedback(TryAgain);
+	}
+}
+
+
+var Segments = new Array();
+Segments[0] = new Array();
+Segments[0][0] = '<img src="../symbols/-er.jpg" alt="-er.jpg" width="20" height="18" border="0"></img>';
+Segments[0][1] = 6;
+Segments[0][2] = 0;
+Segments[1] = new Array();
+Segments[1][0] = '<img src="../symbols/-a-.jpg" alt="-a-.jpg" width="20" height="15" border="0"></img>';
+Segments[1][1] = 2;
+Segments[1][2] = 0;
+Segments[2] = new Array();
+Segments[2][0] = '2.';
+Segments[2][1] = 4;
+Segments[2][2] = 0;
+Segments[3] = new Array();
+Segments[3][0] = '1.';
+Segments[3][1] = 1;
+Segments[3][2] = 0;
+Segments[4] = new Array();
+Segments[4][0] = 't';
+Segments[4][1] = 5;
+Segments[4][2] = 0;
+Segments[5] = new Array();
+Segments[5][0] = 'f';
+Segments[5][1] = 3;
+Segments[5][2] = 0;
+
+
+var GuessSequence = new Array();
+
+var Answers = new Array();
+Answers[0] = new Array(1,2,3,4,5,6);
+
+
+function doDrag(e) {
+	if (CurrDrag == -1) {return};
+	if (is.ie){var Ev = window.event}else{var Ev = e}
+	var difX = Ev.clientX-window.lastX; 
+	var difY = Ev.clientY-window.lastY; 
+	var newX = C[CurrDrag].GetL()+difX; 
+	var newY = C[CurrDrag].GetT()+difY; 
+	C[CurrDrag].SetL(newX); 
+	C[CurrDrag].SetT(newY);
+	window.lastX = Ev.clientX; 
+	window.lastY = Ev.clientY; 
+	return false;
+} 
+
+function beginDrag(e, DragNum) { 
+	CurrDrag = DragNum;
+	if (is.ie){
+		var Ev = window.event;
+		document.onmousemove=doDrag;
+		document.onmouseup=endDrag;
+	}
+	else{
+		var Ev = e;
+		window.onmousemove=doDrag; 
+		window.onmouseup=endDrag;
+	} 
+	C[CurrDrag].SwapColours();
+	topZ++;
+	C[CurrDrag].css.zIndex = topZ;
+	window.lastX=Ev.clientX; 
+	window.lastY=Ev.clientY;
+	return true;  
+} 
+
+function endDrag(e) { 
+	if (CurrDrag == -1) {return};
+	C[CurrDrag].SwapColours();
+	if (is.ie){document.onmousemove=null}else{window.onmousemove=null;}
+	onEndDrag();	
+	CurrDrag = -1;
+	return true;
+} 
+
+function onEndDrag(){
+//Snap to lines
+	var i = 0;
+	var SnapLine = C[CurrDrag].GetT();
+	var BiggestOverlap = -1;
+	var OverlapRect = 0;
+	for (i=0; i<L.length; i++){
+		if (C[CurrDrag].Overlap(L[i]) > OverlapRect){
+			OverlapRect = C[CurrDrag].Overlap(L[i]);
+			BiggestOverlap = i;
+		}
+	}
+
+	if (BiggestOverlap > -1){
+//		SnapLine = L[BiggestOverlap].tag;
+		SnapLine = L[BiggestOverlap].GetB() - (C[CurrDrag].GetH() + 2);
+		C[CurrDrag].SetT(SnapLine);
+		CheckOver(-1);
+	}
+	if (CapitalizeFirst==true){
+		setTimeout('DoCapitalization()', 50);
+	}
+}
+
+function DoCapitalization(){
+//Capitalize first segment if necessary
+	var FD = GetGuessSequence();
+	if ((FD == -1)&&(FirstDiv > -1)){
+		C[FirstDiv].elm.innerHTML = Segments[FirstDiv][0];
+	}
+	if (((FD != FirstDiv)&&(CapitalizeFirst == true))&&(FD > -1)){
+		if (FirstDiv > -1){
+			C[FirstDiv].elm.innerHTML = Segments[FirstDiv][0];
+		}
+	}
+	if ((FD > -1)&&(CapitalizeFirst == true)){
+		var Temp = CapFirst(Segments[FD][0]);
+		C[FD].elm.innerHTML = Temp;
+		FirstDiv = FD;
+	}
+}
+
+function CheckOver(NoMove){
+//This recursive function spreads out the Cards on a line if two of them are overlapping;
+//if the spread operation moves one beyond the end of a line, it wraps it to the next line.
+	var Temp;
+	for (var i=0; i<C.length; i++){
+		for (var j=0; j<C.length; j++){
+			if (i!=j){
+				if (C[i].Overlap(C[j]) > 0){
+					if ((i==NoMove)||(C[i].GetL() < C[j].GetL())){
+						C[j].DockToR(C[i]);
+						if (C[j].GetR() > (LeftColPos + DivWidth)){
+							C[j].SetL(LeftColPos);
+							C[j].SetT(C[j].GetT() + DropHeight);
+						}
+						CheckOver(j);
+					}
+					else{
+						C[i].DockToR(C[j]);
+						if (C[i].GetR() > (LeftColPos + DivWidth)){
+							C[i].SetL(LeftColPos);
+							C[i].SetT(C[i].GetT() + DropHeight);
+						}
+						CheckOver(i);	
+					}
+				}
+			}	
+		}
+	}
+}
+
+function StartUp(){
+
+
+	Segments = Shuffle(Segments);
+
+//Calculate page dimensions and positions
+	pg = new PageDim();
+	DivWidth = Math.floor((pg.W*4)/5);
+	DragWidth = Math.floor((DivWidth*3)/10);
+	LeftColPos = Math.floor(pg.W/10);
+	RightColPos = pg.W - (DragWidth + LeftColPos);
+	DragTop = parseInt(document.getElementById('TitleDiv').offsetHeight) + 10;
+
+//Position the feedback div
+	var CurrDiv = document.getElementById('FeedbackDiv');
+	CurrDiv.style.top = DragTop + 5 + 'px';
+	CurrDiv.style.left = Math.floor((pg.W)/3) + 'px';
+	CurrDiv.style.width = Math.floor(pg.W/3) + 'px';
+
+	var CurrTop = DragTop + 10;
+
+//Position the drop divs
+	for (var i=0; i<DropTotal; i++){
+		L[i] = new Card('Drop' + i);
+		L[i].SetT(CurrTop)
+		L[i].tag = CurrTop-5;
+		L[i].SetL(LeftColPos);
+		L[i].css.backgroundColor = '#fcfeb1';
+		CurrTop += L[i].GetH();
+		topZ++;
+		L[i].css.zIndex = topZ;
+	}
+	DropHeight = L[0].GetH();
+
+	CurrTop = DragTop;
+	var TempInt = 0;
+	var DropHome = 0;
+
+	for (i=0; i<Segments.length; i++){
+//Create a new pointer in the C array to ref the card div
+		C[i] = new Card('D'+i);
+		C[i].elm.innerHTML = Segments[i][0] + '<br clear="all" />'; //required for Navigator rendering bug with images
+		C[i].SetT(CurrTop);
+		C[i].SetL(LeftColPos);
+		C[i].css.cursor = 'move';
+		TempInt = C[i].GetH();
+		CurrTop = CurrTop + TempInt + 5;
+		C[i].css.backgroundColor = '#e0fbfe';
+		C[i].css.color = '#000000';
+		topZ++;
+		C[i].css.zIndex = topZ;
+		C[i].tag = Segments[i][1];
+		C[i].index = i;
+	}
+//Place them at the bottom of the page
+	SetInitialPositions();
+}
+
+function SetInitialPositions(){
+//Places all the divs at the bottom of the page in centred rows
+//First, get the vertical position of the first row
+	var RTop = L[L.length-1].GetB() + 10;
+
+//Create an array to hold the numbers of Cards for each row
+	CRows = new Array();
+	CRows[0] = new Array();
+	Widths = new Array();
+	var i=0;
+	var r=0;
+	var RowWidth=0;
+//Sort the Cards into rows, storing their numbers in the array
+
+	while (i<C.length){
+//if it fits on this row, add it
+		if ((RowWidth + C[i].GetW() + 5) < DivWidth){
+			CRows[r][CRows[r].length] = i;
+			RowWidth += C[i].GetW() + 5;
+//Store the width in the Widths array for later
+			Widths[r] = RowWidth;
+		}
+//if not, increment the row number, and add it to the next row
+		else{
+			r++;
+			CRows[r] = new Array();
+			CRows[r][CRows[r].length] = i;
+			RowWidth = C[i].GetW() + 5;
+//Store the width in the Widths array for later
+			Widths[r] = RowWidth;
+		}
+//move to the next Card
+		i++;
+	}
+//Now we have the numbers in rows, set out each row
+	r=0;
+	var Indent=0;
+	for (r=0; r<CRows.length; r++){
+//Get the required indent for this row
+		Indent = Math.floor((DivWidth-Widths[r])/2);
+//Set the first card in position
+		C[CRows[r][0]].SetL(Indent + LeftColPos);
+		C[CRows[r][0]].SetT(RTop);
+		C[CRows[r][0]].SetHome();
+		for (i=1; i<CRows[r].length; i++){
+			C[CRows[r][i]].DockToR(C[CRows[r][i-1]]);
+			C[CRows[r][i]].SetHome();
+		}
+//Increment the row height
+		RTop += C[0].GetH() + 5;
+	}
+}
+
+function Restart(){
+	for (var i=0; i<C.length; i++){
+		C[i].GoHome();
+		C[i].elm.innerHTML = Segments[i][0];
+	}
+}
+
+function Shuffle(InArray){
+	Temp = new Array();
+	var Len = InArray.length;
+
+	var j = Len;
+
+	for (var i=0; i<Len; i++){
+		Temp[i] = InArray[i];
+	}
+
+	for (i=0; i<Len; i++){
+		Num = Math.floor(j  *  Math.random());
+		InArray[i] = Temp[Num];
+
+		for (var k=Num; k < j; k++) {
+			Temp[k] = Temp[k+1];
+		}
+		j--;
+	}
+	return InArray;
+}
+
+function TimerStartUp(){
+	setTimeout('StartUp()', 300);
+}
+
+function WriteFeedback(Feedback){
+	var Output = Feedback + '<br /><br />';
+	Output += '<form><input type="button" value="OK"';
+	Output += ' onClick="HideFeedback()"></form>';
+	var FDiv = document.getElementById('FeedbackDiv');
+	FDiv.innerHTML = Output;
+	topZ++;
+	FDiv.style.zIndex = topZ;
+//Add a border to the feedback div
+	document.getElementById('FeedbackDiv').style.borderStyle = 'solid';
+	FDiv.style.display='';
+}
+
+function HideFeedback(){
+	var FDiv = document.getElementById('FeedbackDiv');
+	FDiv.innerHTML = '';
+	FDiv.style.display='none';
+}
+
+
+
+//-->
+
+//]]>
+
+</script>
+</head> 
+
+<body onload="TimerStartUp()" background=""> 
+
+<div class="Titles" id="TitleDiv">
+<center>
+<form name="NavButtons1" action="">
+
+<table border="0" width="80%"><tbody><tr><td class="NavBar">
+<input type="button" value="&lt;=" onclick="location='mix10a.htm'"></input><input type="button" value="=&gt;" onclick="location='mix10c.htm'"></input>
+</td></tr></tbody></table>
+</form>
+
+
+<table border="0" width="80%"><tbody><tr><td>
+<center>
+<h3>&#38899;&#27161;&#37325;&#32068;&#33287;&#20998;&#38899;&#31680; (10B)  <a href="sound10/after.wav">Click here</a></h3>
+&#32893;&#38899;&#24460;&#65292;&#23559;&#38899;&#27161;&#25353;&#29031;&#38918;&#24207;&#37325;&#32068;&#20006;&#20197;1.&#12289;2.&#12289;3.&#25110;4.&#30340;&#38918;&#24207;&#20998;&#38899;&#31680;&#12290;&#20363;&#22914;[&#180;ple,de]&#30340;&#38899;&#27161;&#33287;&#38899;&#31680;&#38918;&#24207;&#28858;&#65306;1. ple 2. de<br /><br />
+
+</center>
+</td></tr></tbody></table>
+<br />
+<form action="">
+<input type="button" value="Check" name="CheckButton" onclick="CheckResults(0);return false;"></input>
+
+<input type="button" value="Hint" name="HintButton" onclick="CheckResults(1);return false;"></input>
+
+
+<input type="button" value="Restart" name="RestartButton" onclick="Restart();return false;"></input>
+
+</form>
+</center></div>
+
+<div class="Feedback" id="FeedbackDiv"></div>
+
+<script language="JavaScript" type="text/javascript">
+
+//<![CDATA[
+
+<!--
+
+for (var i=0; i<DropTotal; i++){
+	document.write('<div id="Drop' + i + '" class="DropLine" align="center">&nbsp;<br />&nbsp;</div>');
+}
+
+for (var i=0; i<Segments.length; i++){
+	document.write('<div id="D' + i + '" class="CardStyle" onmousedown="beginDrag(event, ' + i + ')"></div>');
+}
+
+//-->
+
+//]]>
+
+</script>
+
+
+
+</body>
+</html>

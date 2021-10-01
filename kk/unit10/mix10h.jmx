@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<hotpot-jmix-file>
+<version>5</version>
+
+<data>
+<title>&amp;#38899;&amp;#27161;&amp;#37325;&amp;#32068;&amp;#33287;&amp;#20998;&amp;#38899;&amp;#31680; (10H)  &lt;a href=&quot;sound10/summary.wav&quot;&gt;Click here&lt;/a&gt;</title>
+
+<reading>
+<include-reading>0</include-reading>
+<include-timer>0</include-timer>
+<time-limit>1</time-limit>
+<internal-reading>1</internal-reading>
+<path-to-reading></path-to-reading>
+<reading-title></reading-title>
+<reading-text></reading-text>
+
+</reading>
+
+<jumbled-order-exercise><main-order><segment>1.</segment>
+<segment>s</segment>
+<segment>&lt;img src=&quot;../symbols/-u-.jpg&quot; alt=&quot;-u-.jpg&quot; width=&quot;20&quot; height=&quot;20&quot; border=&quot;0&quot;&gt;&lt;/img&gt;</segment>
+<segment>2.</segment>
+<segment>m</segment>
+<segment>&lt;img src=&quot;../symbols/a--.jpg&quot; alt=&quot;a--.jpg&quot; width=&quot;20&quot; height=&quot;19&quot; border=&quot;0&quot;&gt;&lt;/img&gt;</segment>
+<segment>3.</segment>
+<segment>r</segment>
+<segment>&lt;img src=&quot;../symbols/-i-.jpg&quot; alt=&quot;-i-.jpg&quot; width=&quot;15&quot; height=&quot;20&quot; border=&quot;0&quot;&gt;&lt;/img&gt;</segment>
+</main-order></jumbled-order-exercise>
+</data>
+
+<hotpot-config-file>
+<jmix>
+<exercise-subtitle>&amp;#32893;&amp;#38899;&amp;#24460;&amp;#65292;&amp;#23559;&amp;#38899;&amp;#27161;&amp;#25353;&amp;#29031;&amp;#38918;&amp;#24207;&amp;#37325;&amp;#32068;&amp;#20006;&amp;#20197;1.&amp;#12289;2.&amp;#12289;3.&amp;#25110;4.&amp;#30340;&amp;#38918;&amp;#24207;&amp;#20998;&amp;#38899;&amp;#31680;&amp;#12290;&amp;#20363;&amp;#22914;[&amp;#180;ple,de]&amp;#30340;&amp;#38899;&amp;#27161;&amp;#33287;&amp;#38899;&amp;#31680;&amp;#38918;&amp;#24207;&amp;#28858;&amp;#65306;1. ple 2. de
+</exercise-subtitle>
+<instructions></instructions>
+<guess-correct>Correct!</guess-correct>
+<guess-incorrect>Sorry! Try again.</guess-incorrect>
+<this-much-correct>This much of your answer is correct:</this-much-correct>
+<next-correct-part>The next correct part is: </next-correct-part>
+<remaining-words>Remaining words:</remaining-words>
+<click-to-add>Click on words to add them to the sentence.</click-to-add>
+<also-correct>These answers are also correct:</also-correct>
+<include-undo>1</include-undo>
+<include-restart>1</include-restart>
+<include-hint>1</include-hint>
+<next-ex-url>mix10i.htm</next-ex-url>
+<send-email>0</send-email>
+<top-frame-size>30</top-frame-size><top-frame-units>%</top-frame-units>
+<capitalize-first-letter>0</capitalize-first-letter>
+</jmix>
+
+<global>
+
+<check-caption>Check</check-caption>
+<ok-caption>OK</ok-caption>
+<undo-caption>Undo</undo-caption>
+<hint-caption>Hint</hint-caption>
+<restart-caption>Restart</restart-caption>
+<your-score-is>Your score is </your-score-is>
+<show-also-correct>1</show-also-correct>
+<next-ex-caption>=&gt;</next-ex-caption>
+<back-caption>&lt;=</back-caption>
+<contents-caption>&lt;=</contents-caption>
+<include-next-ex>1</include-next-ex>
+<include-contents>1</include-contents>
+<include-back>0</include-back>
+<contents-url>mix10g.htm</contents-url>
+<contents-url>mix10g.htm</contents-url>
+<remaining-time>Remaining time:</remaining-time>
+<start-reading>Start reading</start-reading>
+<show-reading-again>Show reading again</show-reading-again>
+<times-up>Your time is over!</times-up>
+<click-to-show>Click on the button to see the reading.</click-to-show>
+<graphic-url></graphic-url>
+<font-face>Geneva,Arial</font-face>
+<page-bg-color>#fcfeb1</page-bg-color>
+<title-color>#000033</title-color>
+<ex-bg-color>#e0fbfe</ex-bg-color>
+<text-color>#000000</text-color>
+<link-color>#0000ff</link-color>
+<vlink-color>#0000cc</vlink-color>
+<nav-bar-color>#e023f5</nav-bar-color>
+<formmail-url>http://your.server.address/cgi-bin/FormMail.pl</formmail-url>
+<email>you@yourplace.com</email>
+<name-please>Please enter your name:</name-please>
+</global>
+</hotpot-config-file>
+</hotpot-jmix-file>
